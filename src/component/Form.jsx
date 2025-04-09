@@ -1,43 +1,74 @@
-import React,{useState} from 'react'
-import { TextField,Button } from '@mui/material'
+import React, { useState } from 'react';
+import { TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+
 function Form() {
-    const[name,setName ]=useState('');
-    const[password,setPassword]=useState('');
-    const[email,setEmail]=useState('');
-    const handelSubmit = (e)=>{
-        e.preventDefault();
-        console.log(name,password,email);
-        setName('');
-        setPassword('');
-        setEmail('');
-    }
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [course, setCourse] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted Data:", name, password, email, course);
+    setName('');
+    setPassword('');
+    setEmail('');
+    setCourse('');
+  };
+
   return (
     <>
-    <TextField 
-    value={name}
-    label='Please Enter you name'
-    onChange = {(e)=>setName(e.target.value)}
-    variant='outlined'
-    sx = {{margin:'20px',width: '200px'}}
-    /><br/>
-    <TextField 
-    value={password}
-    label="Please enter your password"
-    onChange = {(e)=>setPassword(e.target.value)}
-    variant='outlined'
-    sx = {{margin:'20px',width: '200px'}}
-    /><br/>
-    <TextField 
-    value={email}
-    label='Please Enter you email'
-    onChange = {(e)=>setEmail(e.target.value)}
-    variant='outlined'
-    sx = {{margin:'20px',width: '200px'}}
-    /><br/>
-    <Button variant='outlined'
-    onClick = {handelSubmit} >Submit</Button>
+      <TextField
+        type='text'
+        value={name}
+        label='Please enter your name'
+        onChange={(e) => setName(e.target.value)}
+        variant='outlined'
+        sx={{ margin: '20px', width: '200px' }}
+      /><br />
+
+      <TextField
+        type='password'
+        value={password}
+        label='Please enter your password'
+        onChange={(e) => setPassword(e.target.value)}
+        variant='outlined'
+        sx={{ margin: '20px', width: '200px' }}
+      /><br />
+
+      <TextField
+        type='email'
+        value={email}
+        label='Please enter your email'
+        onChange={(e) => setEmail(e.target.value)}
+        variant='outlined'
+        sx={{ margin: '20px', width: '200px' }}
+      /><br />
+
+      <FormControl variant="outlined" sx={{ margin: '20px', width: '200px' }}>
+        <InputLabel id="menu">Courses</InputLabel>
+        <Select
+          labelId="menu"
+          value={course}
+          onChange={(e) => setCourse(e.target.value)}
+          label="Courses"
+        >
+          <MenuItem value="Java">Java</MenuItem>
+          <MenuItem value="Node">Node</MenuItem>
+          <MenuItem value="DSA">DSA</MenuItem>
+          <MenuItem value="C">C</MenuItem>
+        </Select>
+      </FormControl><br />
+
+      <Button
+        variant='outlined'
+        onClick={handleSubmit}
+        sx={{ margin: '20px' }}
+      >
+        Submit
+      </Button>
     </>
-  )
+  );
 }
 
-export default Form
+export default Form;
