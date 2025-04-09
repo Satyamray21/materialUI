@@ -1,14 +1,12 @@
 
-import ButtonDemo from './component/ButtonDemo';
-import Form from './component/Form';
-import TextFeildDemo from './component/TextFeildDemo';
+import AppBarDemo from './component/AppBarDemo';
 
 
 function App() {
   return (
    <>
- 
-   <Form/>
+  <AppBarDemo />
+  
    </>
   );
 }
