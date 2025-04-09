@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { TextField, Button, FormControl, InputLabel, Select, MenuItem, FormLabel, RadioGroup, FormControlLabel ,Radio} from '@mui/material';
 
 function Form() {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [course, setCourse] = useState('');
+  const [gender,setGender]=useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +60,31 @@ function Form() {
           <MenuItem value="C">C</MenuItem>
         </Select>
       </FormControl><br />
-
+      <FormControl>
+        <FormLabel>
+            Gender
+            </FormLabel>
+            <RadioGroup 
+            value={gender}
+            onChange={(e)=>setGender(e.target.value)}>
+            <FormControlLabel
+            value={'male'}
+            label="Male"
+            control = {<Radio />}
+            />
+              
+            <FormControlLabel
+            value={'female'}
+            label="Female"
+            control = {<Radio />} />
+            <FormControlLabel
+            value={'other'}
+            label='Other'
+            control = {<Radio />}
+            />
+            </RadioGroup>
+      </FormControl>
+    <br/>
       <Button
         variant='outlined'
         onClick={handleSubmit}
