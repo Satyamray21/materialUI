@@ -1,10 +1,12 @@
 
-import TypographyDemo from './component/TypographyDemo';
+import ButtonDemo from './component/ButtonDemo';
+
 
 function App() {
   return (
    <>
-   <TypographyDemo />
+ 
+   <ButtonDemo />
    </>
   );
 }
